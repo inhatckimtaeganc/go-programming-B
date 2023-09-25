@@ -4,31 +4,36 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	fmt.Print("Input score : ")
-	reader := bufio.NewReader(os.Stdin)
-	inputScoreString, err := reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-	inputScoreString = strings.TrimSpace(inputScoreString)      // remove space
-	inputScore, err := strconv.ParseFloat(inputScoreString, 32) // string to 32bit float
-	if err != nil {
-		log.Fatal(err)
-	}
+	fmt.Println("Guess number game!")
+	answer := rand.Intn(100) + 1 // 1 ~ 100
+	fmt.Println(answer)
 
-	var grade string
-	if inputScore >= 90 {
-		grade = "A grade!"
-		//fmt.Println("You got", grade)
-	} else {
-		grade = "under A grade..."
-		//fmt.Println("You got", grade)
+	for i := 0; i < 10; i++ {
+		fmt.Print("Input number : ")
+		reader := bufio.NewReader(os.Stdin)
+		inputGuessString, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+		inputGuessString = strings.TrimSpace(inputGuessString) // remove space
+		inputGuess, err := strconv.Atoi(inputGuessString)
+		if err != nil {
+			log.Fatal(err)
+		}
+		if inputGuess == answer {
+			fmt.Println("Great! You got the number. Congratulations~")
+			break
+		} else if inputGuess < answer {
+			fmt.Println("Your guess number is lower than answer!") // answer is higher
+		} else if inputGuess > answer {
+			fmt.Println("Your guess number is higher than answer!") // answer is lower
+		}
 	}
-	fmt.Println("You got", grade)
 }
