@@ -12,5 +12,9 @@ func main() {
 	b := 2
 	c := &a // var c *int = &a
 	//fmt.Printf("%d %d %x\n", a, b, c)
-	fmt.Printf("%d %d %d\n", a, b, *c)
+	//fmt.Printf("%d %d %d\n", a, b, *c)
+	fmt.Printf("%T\n", c)
+	fmt.Println(a, b)
+	swap(&a, &b)
+	fmt.Println(a, b)
 }
