@@ -37,7 +37,13 @@ func main() {
 
 	//for prime := range primes {  // 소수 값을 배열에서 꺼내려고 하지만 인덱스가 출력
 	//for idx, prime := range primes { // 선언하고 변수를 사용 안함. 컴파일 에러
+
+	sum := 0
 	for _, prime := range primes { // 인덱스 사용 안함
-		fmt.Println(prime)
+		//fmt.Println(prime)
+		sum = sum + prime
 	}
+	fmt.Println(sum)
+	fmt.Println(float64(sum) / float64(len(primes)))
+	fmt.Printf("%.2f\n", float64(sum)/float64(len(primes)))
 }
