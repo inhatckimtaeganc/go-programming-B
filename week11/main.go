@@ -24,9 +24,20 @@ func main() {
 
 	//fmt.Println(primes[3]) // 컴파일 에러. invalid argument: index 3 out of bounds [0:3]
 
-	i := 0
-	for i < 4 { // 실행시간 에러. panic: runtime error: index out of range [3] with length 3
-		fmt.Println(primes[i])
-		i++
+	// i := 0
+	////for i < 4 { // 실행시간 에러. panic: runtime error: index out of range [3] with length 3
+	// for i < len(primes) {
+	// 	fmt.Println(primes[i])
+	// 	i++
+	// }
+
+	// for idx, prime := range primes {
+	// 	fmt.Println(idx, prime)
+	// }
+
+	//for prime := range primes {  // 소수 값을 배열에서 꺼내려고 하지만 인덱스가 출력
+	//for idx, prime := range primes { // 선언하고 변수를 사용 안함. 컴파일 에러
+	for _, prime := range primes { // 인덱스 사용 안함
+		fmt.Println(prime)
 	}
 }
