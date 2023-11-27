@@ -3,8 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var games map[int]string
-	games = make(map[int]string)
+	// var games map[int]string
+	// games = make(map[int]string)
+	games := make(map[int]string)
 	// append
 	games[456] = "성기훈"
 	games[218] = "박해수"
